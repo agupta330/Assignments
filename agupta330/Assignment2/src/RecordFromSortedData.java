@@ -14,8 +14,9 @@ public class RecordFromSortedData
 		String csv = "D:/SortedData2.csv";
 		
 		System.out.println("Enter the option from below");
-		System.out.println("1.Please enter the record you want to see");
-		System.out.println("2.Please enter the record you want to add at the end");
+		System.out.println("1.Please enter the record you want to see according to position");
+		System.out.println("2.Please enter the record you want to see according to ID");
+		System.out.println("3.Please enter the record you want to add at the end");
 		Scanner in =new Scanner(System.in);
 		int options=in.nextInt();
 		
@@ -25,20 +26,38 @@ public class RecordFromSortedData
 			System.out.print("Please enter the record you want to see");
 		 	System.out.println();
 			int lineno=in.nextInt();
-		    BufferedReader br = new BufferedReader(new FileReader(csv));
-		    List<String> lines = new ArrayList<>();
-		    String line = "";
+			BufferedReader br = new BufferedReader(new FileReader(csv));
+		    	List<String> lines = new ArrayList<>();
+		    	String line = "";
 		    
-		    while ((line = br.readLine()) != null) 
-		    {
-		        lines.add(line);
-		    }
-		    System.out.println("Searching Complete");
-		    System.out.println(lines.get(lineno));
+			while ((line = br.readLine()) != null) 
+		    	{
+		             lines.add(line);
+		    	}
+		    	System.out.println("Searching Complete");
+		    	System.out.println(lines.get(lineno));
 		   		    
-        break;
+        	break;
 		
-		case 2:  
+		case 2:
+			System.out.print("Please enter the ID to see that particular record");
+			String id1=in.next();
+			String line1="";
+			BufferedReader br1 = new BufferedReader(new FileReader(csv));
+			
+			while ((line1 = br1.readLine()) != null)
+			{
+		            String strar[] = line1.split(",");
+		        
+		            if(id1.equalsIgnoreCase(strar[0]))
+		            {
+		                System.out.println(line1);
+		            }   	
+			}
+		
+		break;
+        
+		case 3:  
 			
 			String outputFile = "D:/SortedData2.csv";
 			String id,firstname,lastname,age,email,country,ipaddress,order,color=" ";
